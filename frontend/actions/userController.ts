@@ -118,15 +118,11 @@ export const login = async (data: LoginRequest): Promise<ServerActionResponse<Us
   };
 }
 
-export const logout = async (): Promise<ServerActionResponse> => {
+export const logout = async () => {
   const cookieStore = cookies();
   (await cookieStore).set("token", "", {
     maxAge: 0,
     path: "/",
-  });
-
-  return {
-    success: true,
-    message: "Logged out successfully.",
-  };
+  }); 
+  
 };

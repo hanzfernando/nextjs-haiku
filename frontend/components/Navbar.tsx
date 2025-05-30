@@ -3,10 +3,7 @@ import Link from "next/link";
 import { getUserFromCookie } from "@/lib/getUser";
 import { logout } from "@/actions/userController";
 
-const handleLogout = async () => {
-  "use server";
-  await logout();
-};
+
 
 const Navbar = async () => {
   const user = await getUserFromCookie();
@@ -25,12 +22,12 @@ const Navbar = async () => {
             <ul className="menu menu-horizontal px-1">
               {!user ? (
                 <li>
-                  <Link href="/login">Login</Link>
+                  <Link href="/login">Log In</Link>
                 </li>
               ) : (
                 <li>
-                  <form action={handleLogout}>
-                    <button type="submit">Logout</button>
+                  <form action={logout}>
+                    <button type="submit">Log Out</button>
                   </form>
                 </li>
               )}
