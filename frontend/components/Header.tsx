@@ -5,7 +5,7 @@ import { logout } from "@/actions/userController";
 
 
 
-const Navbar = async () => {
+const Header = async () => {
   const user = await getUserFromCookie();
 
   return (
@@ -39,4 +39,4 @@ const Navbar = async () => {
   );
 };
 
-export default Navbar;
+export default Header;
